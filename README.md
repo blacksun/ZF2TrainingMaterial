@@ -38,10 +38,10 @@ Il faudra par contre assumer vos choix : je ne serai pas là pour vous aider sur
 > git clone https://github.com/blacksun/ZF2TrainingMaterial.git
 ```
 
-- Allez sur le répertoire Vagrant-VM
+- Allez sur le répertoire ZF2TrainingMaterial/Vagrant
 
 ```shell
-> cd Trainings/Vagrant-VM
+> cd ZF2TrainingMaterial/Vagrant
 ```
 
 - Remontez la VM avec
@@ -72,10 +72,10 @@ Vous pouvez changer cela si vous voulez.
 
 Zend Server est provisionné.
 Pour l'activer, il suffit d'ouvrir le navigateur à l'adresse 192.168.33.10:10081 
-et de suivre les étapes. Choisir un profil Development.
+et de suivre les étapes. Choisir un profil "Development".
 
 
-### Add project Hello World
+## Ajout du project Hello World
 
 Nous avons déjà monté le projet (le répertoire) helloWorld dans Vagrant 
 
@@ -86,7 +86,9 @@ Vous pouvez vérifier en passant par la console de notre machine sur VirtualBox 
 ```
  et vous allez trouver le repertoire helloWorld.
  
-## Création du virtual host
+### Création du virtual host
+
+- Dans Zend Server, cliquer sur "Applications" 
 
 - Créez un nouveau virtual host "local.hello-world"
 
@@ -112,7 +114,7 @@ en rajoutant cette ligne dans c:/Windows/system32/drivers/etc/hosts
 192.168.33.10 local.hello-world
 ```
 
-## Déclaration du projet comme application Zend Server
+### Déclaration du projet comme application Zend Server
 
 - Dans l'onglet "Applications" cliquer sur "Manage Apps"
 
@@ -124,17 +126,20 @@ en rajoutant cette ligne dans c:/Windows/system32/drivers/etc/hosts
 
 - Cliquez sur "Define"
 
-- Redemarrez Zend server 
+- Redemarrez Zend Server 
 
 ## Install de Zend Studio
 
-Nous allons besoin d'installer Zend studio sur notre machine (Windows, Linux ou Mac).
+Nous allons besoin d'installer Zend Studio sur notre machine (Windows, Linux ou Mac).
 
-- Téléchargez Zend studio  [ici](http://www.zend.com/en/products/studio/downloads#Windows).
+- Téléchargez Zend studio  [ici](http://www.zend.com/en/products/studio/download).
 
-- Si votre système et 32 bit choisissez le Zend studio - 32 bit sinon le Zend studio - 64 bit.
+- Choisissez le Zend Studio - 32 bit ou 64 bit selon les caractéristiques de votre plateforme.
 
-- Cliquez sur le exe et installez zend studio.
+> Sous Windows, installez l'exécutable téléchargé.
+
+> Sous Linux, décompresser le fichier, naviguez en ligne de commande à la racine du decompressé 
+et exécutez "ZendStudio"
 
 ### Configuration Plugins
 
