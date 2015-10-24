@@ -8,14 +8,19 @@ Nous avons imaginé pour vous un environnement de travail:
 
 - optimisé pour le développement ZF2
 
-Une machine virtual sur Vagrant contient un serveur ubuntu/trusty64 avec Zend server , service Mysql et git integrés. 
+Nous vous fournissons une machine virtuelle Vagrant qui contient un serveur ubuntu/trusty64.
+Preinstallés ("provisionnés"), vous trouverez Zend Server, Mysql et Git.
 
-Si les choix que nous avons faites ne vous conviennent pas, vous etes libres de choisir votre propre environnement.
-Il faudra par contre assumer vos choix : je ne serai pas là pour vous aider sur des problémes derivés de vos choix d'environnement. 
+Nous imaginons de travailler avec l'IDE Zend Studio sur la machine client (la votre, que ce soit du Windows, Mac ou Linux). 
+
+Mais vous etes libres de choisir votre environnement.
+Il faudra par contre assumer vos choix : je ne serai pas là pour vous aider sur les problémes des environnements "autres". 
 
 ## Installation de VirtualBox
 
 - Télécharger la version 4.1.14 de VirtualBox [ici](http://download.virtualbox.org/virtualbox/4.1.42/VirtualBox-4.1.42-103435-Win.exe).
+
+-- Surtout ne pas installer la version 5, elle n'est toujours pas bien supporté par Vagrant 
 
 - Installer VirtualBox sur votre machine.
 
@@ -30,7 +35,7 @@ Il faudra par contre assumer vos choix : je ne serai pas là pour vous aider sur
 - Importez le projet utilisant git
 
 ```shell
-> git clone https://github.com/blacksun/Trainings
+> git clone https://github.com/blacksun/ZF2TrainingMaterial.git
 ```
 
 - Allez sur le répertoire Vagrant-VM
@@ -48,20 +53,26 @@ Il faudra par contre assumer vos choix : je ne serai pas là pour vous aider sur
 - Connectez-vous avec
 
 ```shell
-> user-login : vagrant
-> user-password : vagrant
+> login : vagrant
+> password : vagrant
 ```
 ## Configuration de la VM
 
-### Install Zend Server
+Nous avons configuré l'ip de la VM auprès du reseau de l'hote a 192.168.33.10 
 
-Dans notre fichier de config de vagrant "vagrantFile", Nous avons mis :
+Dans le "vagrantFile" :
 
 ```shell
 config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
-Donc pour installer Zend Server, il suffit d'aller sur le browser et on met 192.168.33.10:10081 puis on suit les étapes de l'installation.
+Vous pouvez changer cela si vous voulez.
+
+### Install Zend Server
+
+Zend Server est provisionné.
+Pour l'activer, il suffit d'ouvrir le navigateur à l'adresse 192.168.33.10:10081 
+et de suivre les étapes. Choisir un profil Development.
 
 
 ### Add project Hello World
