@@ -18,15 +18,13 @@ Il faudra par contre assumer vos choix : je ne serai pas là pour vous aider sur
 
 ## Installation de VirtualBox
 
-- Télécharger la version 4.1.14 de VirtualBox [ici](http://download.virtualbox.org/virtualbox/4.1.42/VirtualBox-4.1.42-103435-Win.exe).
-
--- Surtout ne pas installer la version 5, elle n'est toujours pas bien supporté par Vagrant 
+- Télécharger la dernière version VirtualBox [ici](https://www.virtualbox.org/wiki/Downloads).
 
 - Installer VirtualBox sur votre machine.
 
 ## Installation de Vagrant
 
-- Télécharger la version 1.7.2 de Vagrant [ici](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.msi).
+- Télécharger la dernière version de Vagrant [ici](https://www.vagrantup.com/downloads.html).
 
 - Installer Vagrant sur votre machine.
 
@@ -77,7 +75,7 @@ et de suivre les étapes. Choisir un profil "Development".
 
 ## Ajout du project Hello World
 
-Nous avons déjà monté le projet (le répertoire) helloWorld dans Vagrant 
+Nous avons déjà monté le répertoire du projet helloWorld dans Vagrant 
 
 Vous pouvez vérifier en passant par la console de notre machine sur VirtualBox (ou putty.exe en utilisant host:127.0.0.1, port :2222)
 
@@ -96,7 +94,8 @@ Vous pouvez vérifier en passant par la console de notre machine sur VirtualBox 
 
 - Cliquez sur Next
 
-- Cochez "Edit the virtual host configuration template" et modifier le variable ${docroot} par /home/vagrant/helloWorld/public/ pour DocumentRoot et Directory
+- Cochez "Edit the virtual host configuration template" et modifier la variable 
+${docroot} par /home/vagrant/helloWorld/public/ pour DocumentRoot et Directory
 
 - Cliquez sur Next
 
@@ -108,7 +107,10 @@ Vous pouvez vérifier en passant par la console de notre machine sur VirtualBox 
 
 Maintenant pour utiliser ce virtual Host dans notre machine, 
 on doit rajouter l'adress IP de la VM 192.168.33.10 dans le fichier hosts de notre machine
-en rajoutant cette ligne dans c:/Windows/system32/drivers/etc/hosts
+
+> Sous Windows en rajoutant cette ligne dans c:/Windows/system32/drivers/etc/hosts
+
+> Sous Linux rajouter cette ligne dans le fichier /etc/hosts
 
 ```shell
 192.168.33.10 local.hello-world
@@ -130,11 +132,14 @@ en rajoutant cette ligne dans c:/Windows/system32/drivers/etc/hosts
 
 ## Install de Zend Studio
 
-Nous allons besoin d'installer Zend Studio sur notre machine (Windows, Linux ou Mac).
+Nous vous conseillons d'installer Zend Studio sur votre machine (Windows, Linux ou Mac).
 
-- Téléchargez Zend studio  [ici](http://www.zend.com/en/products/studio/download).
+En tant qu'étudiants (ou en tant que développeurs open source) vous avez droit a une licence gratuite valide pour un an.
+Je vous communiquerez votre licence pendant la prochaine séance de Novembre.
 
-- Choisissez le Zend Studio - 32 bit ou 64 bit selon les caractéristiques de votre plateforme.
+Pour pouvoir vous attribuer la licence et télécharger Zend Studio, une inscription avec un'email valide est demandée. 
+
+- Téléchargez Zend Studio  [ici](http://www.zend.com/en/products/studio/download).
 
 > Sous Windows, installez l'exécutable téléchargé.
 
@@ -142,6 +147,13 @@ Nous allons besoin d'installer Zend Studio sur notre machine (Windows, Linux ou 
 et exécutez "ZendStudio"
 
 ### Configuration Plugins
+
+
+A la première ouverture de Zend Studio, l'écran d'accueil "Welcome" vous permet de configurer rapidement votre environnement de travail.
+
+Profitez-en pour rajouter les plugins "Terminal" et "Markdown editor". 
+
+Je vous conseille aussi de vous donner la possibilité de tester PHP 7 en cochant simplement la case correspondante.
 
 ### Configuration Préférences
 
@@ -192,4 +204,3 @@ Pour vérifier que la conexion avec la VM est bonne essayez avec le boutton "tes
 Vous aurez le répertoire helloWorld coché déjà.
 
 Cliquez sur finish et vous aurez le projet sur Zend Studio lié à votre VM.
-
