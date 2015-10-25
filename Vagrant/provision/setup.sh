@@ -20,7 +20,7 @@ sudo apt-get install mysql-server -y > /dev/null
 echo 'Install git...'
 yes | sudo apt-get install git
 #install PYTHON
-echo 'Install phyton-pip ...' 
+echo 'Install python-pip ...' 
 yes | sudo apt-get install phyton-pip
 #install LandSlide
 echo 'Install LandSlide ...' 
