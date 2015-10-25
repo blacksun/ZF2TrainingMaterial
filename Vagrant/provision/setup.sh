@@ -36,10 +36,11 @@ cd ./ZendServer-RepositoryInstaller-linux/
 echo 'Install Zend Server...'
 yes | sudo ./install_zs.sh 5.6
 ##Make Apache logs visible from ZS GUI
+sudo ln -s /usr/local/zend/bin/php /usr/local/bin/php
 sudo chmod 775 /var/log/apache2
 sudo chmod 664 /var/log/apache2/*.*
 
 #Add composer 
-echo 'Download composer.phar ...'
-curl -sS https://getcomposer.org/installer |/usr/local/zend/bin/php
+echo 'Install Composer ...'
+curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
