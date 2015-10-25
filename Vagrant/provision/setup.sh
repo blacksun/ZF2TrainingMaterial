@@ -21,7 +21,7 @@ echo 'Install git...'
 yes | sudo apt-get install git
 #install PYTHON
 echo 'Install python-pip ...' 
-yes | sudo apt-get install phyton-pip
+yes | sudo apt-get install python-pip
 #install LandSlide
 echo 'Install LandSlide ...' 
 yes | sudo pip install landslide
@@ -35,6 +35,7 @@ cd ./ZendServer-RepositoryInstaller-linux/
 #Install Zend Server
 echo 'Install Zend Server...'
 yes | sudo ./install_zs.sh 5.6
+
 ##Make Apache logs visible from ZS GUI
 sudo ln -s /usr/local/zend/bin/php /usr/local/bin/php
 sudo chmod 775 /var/log/apache2
