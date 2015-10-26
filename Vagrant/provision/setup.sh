@@ -4,6 +4,9 @@ export DEBIAN_FRONTEND=noninteractive
 installpkg(){
     dpkg-query --status $1 >/dev/null || apt-get install -y $1
 }
+
+echo "deb http://repos.zend.com/zend-server/8.5/deb_apache2.4 server non-free" | sudo tee -a /etc/apt/sources.list >/dev/null
+wget http://repos.zend.com/zend.key -O- |sudo apt-key add -
 sudo apt-get update
 
 #Install debconf-utils
@@ -19,23 +22,23 @@ sudo apt-get install mysql-server -y > /dev/null
 #Install Git
 echo 'Install git...'
 yes | sudo apt-get install git
-#install PYTHON
-echo 'Install python-pip ...' 
-yes | sudo apt-get install python-pip
-#install LandSlide
-echo 'Install LandSlide ...' 
-yes | sudo pip install landslide
+
+##install PYTHON
+#echo 'Install python-pip ...' 
+#yes | sudo apt-get install python-pip
+##install LandSlide
+#echo 'Install LandSlide ...' 
+#yes | sudo pip install landslide
 
 #Download Zend Server
-echo 'Downloading Zend Server...'
-wget http://downloads.zend.com/zendserver/8.5.1/ZendServer-8.5.1-RepositoryInstaller-linux.tar.gz
-tar zxf ./ZendServer-8.5.1-RepositoryInstaller-linux.tar.gz
-cd ./ZendServer-RepositoryInstaller-linux/
+#echo 'Downloading Zend Server...'
+#wget http://downloads.zend.com/zendserver/8.5.1/ZendServer-8.5.1-RepositoryInstaller-linux.tar.gz
+#tar zxf ./ZendServer-8.5.1-RepositoryInstaller-linux.tar.gz
+#cd ./ZendServer-RepositoryInstaller-linux/
 
 #Install Zend Server
 echo 'Install Zend Server...'
-yes | sudo ./install_zs.sh 5.6
-
+yes | sudo apt-get install zend-server-php-5.6
 ##Make Apache logs visible from ZS GUI
 sudo ln -s /usr/local/zend/bin/php /usr/local/bin/php
 sudo chmod 775 /var/log/apache2
