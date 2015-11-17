@@ -10,12 +10,15 @@
 namespace Guestbook\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Guestbook\Service\Entry;
 
 class IndexController extends AbstractActionController
 {
+    
     public function indexAction()
     {
-        return array();
+        $entryService = new Entry();
+        return ['entries' => $entryService->getLasts()];
     }
 
     public function fooAction()
