@@ -1,3 +1,16 @@
-<strong>Module:</strong>        Guestbook &raquo;
-<strong>Controller:</strong>    Index &raquo;
-<strong>Action:</strong>        index
+
+<div id="content">
+	<?php foreach ($this->entries as $entry): ?>
+	
+	<div class="post">
+		<p class="meta">
+			<span class="date"><?= $entry->date ?></span>
+			<span class="posted">Posted by <a href="#"><?= $entry->author ?></a></span>
+		</p>
+		<div class="entry">
+			<p><?= $entry->message ?></p>
+		</div>
+	</div>
+	<?php endforeach;?>
+	<div style="clear: both;">&nbsp;</div>
+</div>
