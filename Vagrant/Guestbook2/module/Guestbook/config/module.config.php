@@ -15,8 +15,8 @@ return array(
         ),
     ),
     'controllers' => array(
-        'invokables' => array(
-            'guestbook-index' => 'Guestbook\Controller\IndexController',
+        'factories' => array(
+            'guestbook-index' => 'Guestbook\Factory\IndexControllerFactory',
         ),
     ),
     'view_manager' => array(
