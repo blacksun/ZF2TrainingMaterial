@@ -24,4 +24,10 @@ return array(
             'guestbook' => __DIR__ . '/../view',
         ),
     ),
+    'service_manager' => [
+        'factories' => [
+            'entry_table' => 'Guestbook\Factory\EntryTableFactory',
+            'entry_service' => 'Guestbook\Factory\EntryServiceFactory',
+        ]
+    ]
 );

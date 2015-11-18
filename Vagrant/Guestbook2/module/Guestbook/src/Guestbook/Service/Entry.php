@@ -1,20 +1,29 @@
 <?php
 namespace Guestbook\Service;
 
+use Zend\ServiceManager\ServiceLocatorInterface;
+
 class Entry
 {
+    /**
+     * @var ServiceLocatorInterface
+     */
+    private $serviceManager;
+    
+    public function setServiceManager($serviceManager)
+    {
+        $this->serviceManager = $serviceManager;
+    }
+    
+    public function getServiceManager()
+    {
+        return $this->serviceManager;
+    }
+    
     public function getLasts()
     {
-        $entries = [];
-        
-        $entry = new \stdClass();
-        $entry->message = "Ceci n'est pas un message";
-        $entry->date = "May 15, 2012";
-        $entry->author = 'Gabriele Santini';
-        $entries[] = $entry;
-        $entries[] = $entry;
-        $entries[] = $entry;
-        
-        return $entries;
+//         $entryTable = new Entry('guestbook_entry', $adapter);
+        $entryTable = $this->getServiceManager()->get('entry_table');
+        return $entryTable->findAll();
     }
 }
