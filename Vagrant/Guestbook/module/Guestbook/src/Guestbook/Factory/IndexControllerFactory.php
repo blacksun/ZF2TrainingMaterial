@@ -11,8 +11,10 @@ class IndexControllerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $controllerManager)
     {
         $controller = new IndexController();
-        $entryService = $controllerManager->getServiceLocator()->get('entry_service');
+        $serviceManager = $controllerManager->getServiceLocator();
+        $entryService = $serviceManager->get('entry_service');
         $controller->setEntryService($entryService);
+        
         return $controller;
     }
 }

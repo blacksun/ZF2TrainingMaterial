@@ -1,10 +1,11 @@
-	<div class="post">
-		<p class="meta">
-			<span class="date"><?= $date ?></span>
-			<span class="posted">Posted by <a href="#"><?= $author ?></a></span>
-		</p>
-		<div class="entry">
-			<p><?= $message ?></p>
-			<p class="links"><a href="#">Read More</a></p>
-		</div>
-	</div>
+<?php $this->entryForm->setAttribute('action', $this->url('entry')) ?>
+<?php $this->entryForm->prepare() ?>
+<section>
+	<h1>Create a new Entry</h1>
+	<?= $this->form()->openTag($this->entryForm) ?>
+	<?php foreach ($this->entryForm as $element):?>
+		<?= $this->formRow($element) ?>
+		</br>
+	<?php endforeach ?>
+	<?= $this->form()->closeTag() ?>
+</section>
