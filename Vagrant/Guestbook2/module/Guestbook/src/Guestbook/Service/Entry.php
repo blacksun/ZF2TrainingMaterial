@@ -1,29 +1,33 @@
 <?php
 namespace Guestbook\Service;
 
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Guestbook\Table\Entry as EntryTable;
 
 class Entry
 {
     /**
-     * @var ServiceLocatorInterface
+     * @var EntryTable
      */
-    private $serviceManager;
-    
-    public function setServiceManager($serviceManager)
+    private $entryTable;
+
+    /**
+     * @param EntryTable $entryTable
+     */
+    public function setEntryTable(EntryTable $entryTable)
     {
-        $this->serviceManager = $serviceManager;
+        $this->entryTable = $entryTable;
     }
     
-    public function getServiceManager()
+    /**
+     * @return EntryTable
+     */
+    public function getEntryTable()
     {
-        return $this->serviceManager;
+        return $this->entryTable;
     }
     
     public function getLasts()
     {
-//         $entryTable = new Entry('guestbook_entry', $adapter);
-        $entryTable = $this->getServiceManager()->get('entry_table');
-        return $entryTable->findAll();
+        return $this->getEntryTable()->findLasts();
     }
 }
