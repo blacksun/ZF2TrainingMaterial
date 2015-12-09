@@ -10,7 +10,7 @@ class EntryServiceFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceManager)
     {
         $entryService = new Entry();
-        $entryService->setServiceManager($serviceManager);
+        $entryService->setEntryTable($serviceManager->get('entry_table'));
         
         return $entryService;
     }

@@ -4,7 +4,6 @@ namespace Guestbook\Factory;
 use Zend\ServiceManager\FactoryInterface;
 use Guestbook\Controller\IndexController;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Guestbook\Service\Entry;
 
 class IndexControllerFactory implements FactoryInterface
 {
