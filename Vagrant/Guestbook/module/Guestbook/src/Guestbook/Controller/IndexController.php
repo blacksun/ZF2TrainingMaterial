@@ -11,6 +11,7 @@ namespace Guestbook\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Guestbook\Service\Entry as EntryService;
+use Guestbook\Form\Entry as EntryForm;
 
 class IndexController extends AbstractActionController
 {
@@ -32,5 +33,21 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         return ['entries' => $this->getEntryService()->getLasts()];
+    }
+    
+    public function entryAction()
+    {
+        $entryForm = new EntryForm();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+        
+            $entryForm->setData($request->getPost());
+             
+            if ($entryForm->isValid()) {
+                // save data
+            }
+        }
+        
+        return ['entryForm' => $entryForm];
     }
 }

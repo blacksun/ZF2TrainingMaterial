@@ -1,0 +1,13 @@
+<?php $this->entryForm->setAttribute('action', $this->url('entry')) ?>
+<?php $this->entryForm->prepare() ?>
+<section>
+	<h1>Create a new Entry</h1>
+		</br>
+		<?= $this->form()->openTag($this->entryForm) ?>
+		
+		<?php foreach ($this->entryForm as $element):?>
+			<?= $this->formRow($element) ?>
+			</br>
+		<?php endforeach ?>
+		<?= $this->form()->closeTag() ?>
+</section>
