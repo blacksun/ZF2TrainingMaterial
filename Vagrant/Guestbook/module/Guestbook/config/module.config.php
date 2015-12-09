@@ -1,32 +1,33 @@
 <?php
 return array(
-    'controllers' => array(
-        'invokables' => array(
-            'guestbook-index' => 'Guestbook\Controller\IndexController',
-        ),
-    ),
     'router' => array(
         'routes' => array(
             'guestbook' => array(
-                'type'    => 'Literal',
+                'type'    => 'literal',
                 'options' => array(
-                    // Change this to something specific to your module
                     'route'    => '/guestbook',
                     'defaults' => array(
-                        // Change this value to reflect the namespace in which
-                        // the controllers for your module are found
-                        //'__NAMESPACE__' => 'Guestbook\Controller',
                         'controller'    => 'guestbook-index',
                         'action'        => 'index',
                     ),
                 ),
-                
             ),
+        ),
+    ),
+    'controllers' => array(
+        'factories' => array(
+            'guestbook-index' => 'Guestbook\Factory\IndexControllerFactory',
         ),
     ),
     'view_manager' => array(
         'template_path_stack' => array(
-            'Guestbook' => __DIR__ . '/../view',
+            'guestbook' => __DIR__ . '/../view',
         ),
     ),
+    'service_manager' => [
+        'factories' => [
+            'entry_table' => 'Guestbook\Factory\EntryTableFactory',
+            'entry_service' => 'Guestbook\Factory\EntryServiceFactory',
+        ]
+    ]
 );

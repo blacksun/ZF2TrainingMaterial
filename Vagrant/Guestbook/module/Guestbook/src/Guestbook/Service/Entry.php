@@ -1,8 +1,34 @@
 <?php
 namespace Guestbook\Service;
 
+use Guestbook\Table\Entry as EntryTable;
+
 class Entry
 {
+    private $serviceManager;
+    
+    public function setServiceManager($serviceManager)
+    {
+        $this->serviceManager = $serviceManager;
+    }
+    
+    public function getServiceManager()
+    {
+        return $this->serviceManager;
+    }
+    
+    private $entryTable;
+    
+    public function setEntryTable($entryTable)
+    {
+        $this->entryTable = $entryTable;
+    }
+    
+    public function getEntryTable()
+    {
+        return $this->entryTable;
+    }
+    
     public function get()
     {
         $entry = new \stdClass();
@@ -15,28 +41,8 @@ class Entry
     
     public function getLasts()
     {
-        $entries = [];
-        $entry = new \stdClass();
-        $entry->message = "Ceci n'est pas un message";
-        $entry->author = "Gabriele Santini";
-        $entry->date = "May 14, 2012";
+//         $entryTable = $this->getServiceManager()->get('entry_table');
         
-        $entries[] = $entry;
- 
-        $entry = new \stdClass();
-        $entry->message = "Bof";
-        $entry->author = "Titi Toto";
-        $entry->date = "May 13, 2012";
-        
-        $entries[] = $entry;
-        
-        $entry = new \stdClass();
-        $entry->message = "Ceci est bien un message";
-        $entry->author = "Gabriele Santini";
-        $entry->date = "May 12, 2012";
-        
-        $entries[] = $entry;
-        
-        return $entries;
+        return $this->getEntryTable()->findAll();
     }
 }

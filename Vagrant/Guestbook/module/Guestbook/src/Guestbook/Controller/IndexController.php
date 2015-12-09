@@ -14,16 +14,23 @@ use Guestbook\Service\Entry as EntryService;
 
 class IndexController extends AbstractActionController
 {
+    /**
+     * @var EntryService
+     */
+    private $entryService;
+    
+    public function setEntryService($entryService)
+    {
+        $this->entryService = $entryService;
+    }
+    
+    public function getEntryService()
+    {
+        return $this->entryService;
+    }
+    
     public function indexAction()
     {
-        $entry = new EntryService();
-        return ['entries' => $entry->getLasts()];
-    }
-
-    public function fooAction()
-    {
-        // This shows the :controller and :action parameters in default route
-        // are working when you browse to /index/index/foo
-        return array();
+        return ['entries' => $this->getEntryService()->getLasts()];
     }
 }
