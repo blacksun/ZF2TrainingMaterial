@@ -12,6 +12,16 @@ return array(
                     ),
                 ),
             ),
+            'entry' => array(
+                'type'    => 'literal',
+                'options' => array(
+                    'route'    => '/entry',
+                    'defaults' => array(
+                        'controller'    => 'guestbook-index',
+                        'action'        => 'entry',
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers' => array(
@@ -26,7 +36,8 @@ return array(
     ),
     'service_manager' => [
         'factories' => [
-            'entry_table' => 'Guestbook\Factory\EntryTableFactory',
+            'entry_form'    => 'Guestbook\Factory\EntryFormFactory',
+            'entry_table'   => 'Guestbook\Factory\EntryTableFactory',
             'entry_service' => 'Guestbook\Factory\EntryServiceFactory',
         ]
     ]

@@ -24,4 +24,12 @@ class Entry
     {
         return $this->getEntryTable()->findAll();
     }
+    
+    public function add($data)
+    {
+        $date = new \DateTime();
+        $data['date'] = $date->format('Y-m-d H:i:s');
+        
+        return $this->getEntryTable()->insert($data);
+    }
 }
